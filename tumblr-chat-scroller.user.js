@@ -149,7 +149,7 @@ async function scrollMessagesTo(targetDateString) {
         return null;
     }
 
-    if (tumblrDateConvert(earliestTimestamp() >= targetDate)) {
+    if (tumblrDateConvert(earliestTimestamp()) <= targetDate) {
         window.alert("You're already there, yay!");
         return null;
     }
