@@ -189,7 +189,12 @@ async function scrollMessagesTo(targetDateString) {
 }
 
 async function runScript() {
-    while (document.querySelector(messageBoxSelector) === null) {
+    while (document.evaluate(messageBoxXPath,
+                             document,
+                             null,
+                             XPathResult.FIRST_ORDERED_NODE_TYPE,
+                             null).singleNodeValue
+           === null) {
         await sleep(1000);
     }
 
