@@ -1,5 +1,6 @@
 // ==UserScript==
 // @name Tumblr Chat Scroller
+// @version 1.1
 // @author Matthew Darling
 // @namespace Violentmonkey Scripts
 // @match *://www.tumblr.com/blog/*/activity
