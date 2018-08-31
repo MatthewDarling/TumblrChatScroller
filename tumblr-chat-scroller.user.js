@@ -74,7 +74,21 @@ function sleep(ms) {
 }
 
 function tumblrDateConvert(tumblrDateString) {
-    return moment(tumblrDateString, "MM/DD/YYYY");
+    if (tumblrDateString === null) {
+        return null;
+    }
+
+    var maybeParsedDate = moment(tumblrDateString, "MM/DD/YYYY");
+    if (maybeParsedDate.isValid()) {
+        return maybeParsedDate;
+    } else {
+        // Sometimes the timestamp will be like "Last Friday at
+        // 11:45am". Moment can't convert that, so just return the
+        // current time. This will mostly work correctly, as long as
+        // you want to scroll back far enough for Tumblr to use real
+        // dates
+        return moment();
+    }
 }
 
 function formattedDiff(laterTime, earlierTime) {
